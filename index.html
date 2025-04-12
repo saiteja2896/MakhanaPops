@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makhana Pops | Healthy, Crunchy, Guilt-Free Snacks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* Color Variables */
+        :root {
+            --primary: #D97B29; /* Earthy orange */
+    --secondary: #5C3D2E; /* Dark brown */
+    --light: #F8F1E5; /* Warm cream */
+    --dark: #2E2720; /* Darker brown */
+    --accent: #E8AA42; /* Lighter orange */
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.2rem; }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #D97B29;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 7px 0;
+        }
+
+        .logo {
+            display: flex;
+			padding-bottom: 1rem;
+            align-items: center;
+            margin-left: -32px;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+			border-radius: 40px;
+        }
+
+        .logo h1 {
+			font-size: 1.2rem;
+            font-family: "Lucida Console", "Courier New", monospace;
+            font-weight: 600;
+			color: #D97B29
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+			margin-left: -1rem;
+            cursor: pointer;
+        }
+
+@media (max-width: 768px) {
+    .mobile-menu {
+        display: block;
+    }
+    
+    nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    nav ul.active {
+        left: 0;
+    }
+}
+        /* Hero Section */
+        .hero {
+		    background: #F8F1E5; /* Warm cream color from packaging */
+    padding: 120px 0 60px;
+    display: flex;
+    align-items: center;
+        }
+
+        .hero h1 {
+            
+            color: #D97B29
+			
+        }
+
+        .hero h2 {
+            color: #5C3D2E;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .underline {
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0 auto 20px;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .ceo-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .ceo-image {
+            flex: 1;
+            min-width: 300px;
+            margin-right: 50px;
+        }
+
+        .ceo-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .ceo-quote {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .ceo-quote blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--dark);
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .ceo-quote blockquote:before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            position: absolute;
+            left: -20px;
+            top: -20px;
+            opacity: 0.3;
+        }
+
+        .ceo-quote p {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .mission-statement {
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .company-description {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Flavors Section */
+        .flavors {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .flavor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .flavor-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .flavor-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .flavor-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .flavor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .flavor-card:hover .flavor-img img {
+            transform: scale(1.1);
+        }
+
+        .flavor-card h3 {
+            padding: 20px 20px 10px;
+            color: var(--dark);
+        }
+
+        .flavor-card ul {
+            padding: 0 20px 20px;
+            list-style-position: inside;
+        }
+
+        .flavor-card ul li {
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+
+        .social-links a {
+            display: block;
+            margin-bottom: 15px;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            margin-right: 15px;
+			border-radius: 40px;
+        }
+
+        .footer-logo h3 {
+            color: white;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: white;
+        }
+
+        .footer-subscribe {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-subscribe h4 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-subscribe form {
+            display: flex;
+        }
+
+        .footer-subscribe input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .footer-subscribe button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .footer-subscribe button:hover {
+            background: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .ceo-info {
+                flex-direction: column;
+            }
+
+            .ceo-image {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+		
+		/* Modified Hero Styles */
+.hero {
+    background: #f9f5f0;
+    padding: 120px 0 60px;
+    display: flex;
+    align-items: center;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border: 8px solid white; /* White border to match packaging */
+}
+
+/* CEO Image Size Adjustment */
+.ceo-image img {
+    max-width: 300px;
+    height: auto;
+}
+
+/* New Packaging Section Styles */
+.packaging {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.packaging-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.packaging-card {
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+	background: #F8F1E5;
+    border: 2px solid #D97B29;
+}
+
+.packaging-card:hover {
+    transform: translateY(-10px);
+}
+
+.packaging-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero .container {
+        flex-direction: column;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .ceo-info {
+        flex-direction: column;
+    }
+    
+    .ceo-image {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="C:\Users\Saite\Desktop\makahana\makhana_logo.png" alt="Makhana Pops Logo">
+                <h1>Makhana Pops</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#flavors">Flavors</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+    <i class="fas fa-bars"></i>
+    <i class="fas fa-times" style="display: none;"></i>
+</div>
+        </div>
+    </header>
+	
+	<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h2>Crunchy. Nutritious. Delicious.</h2>
+            <h1>Makhana Pops</h1>
+            <p>Nature's perfect snack - wellness in every pop, Tast in every snap</p>
+            <a href="#flavors" class="btn">Explore Flavors</a>
+        </div>
+        <div class="hero-image">
+            <img src="C:\Users\Saite\Desktop\makahana\makhana_packaging1.jpg" alt="Makhana Pops Snacks">
+        </div>
+    </div>
+</section>
+
+    <!-- CEO & About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="ceo-info">
+                <div class="ceo-image">
+                    <img src="C:\Users\Saite\Desktop\makahana\IMG_9136.PNG" alt="Nikhil Reddy Suram, CEO" style="max-width: 300px;">
+                </div>
+                <div class="ceo-quote">
+                    <blockquote>
+                        "Food is a shared passion, so why not embrace a healthy choice that provides guilt-free pleasure?"
+                    </blockquote>
+                    <p><strong>Nikhil Reddy Suram</strong><br>Founder & CEO, Makhana Pops</p>
+                    <p class="mission-statement">"Prioritize wellness, savor the experience—let's snack wisely and enrich our well-being together!"</p>
+                </div>
+            </div>
+            <div class="company-description">
+                <p>Makhana Pops is dedicated to revolutionizing healthy snacking with our premium roasted lotus seeds. We combine traditional wisdom with modern flavors to create snacks that are both nutritious and incredibly tasty.</p>
+                <p>Our mission is to harmoniously integrate health and flavor through carefully curated gourmet seasonings, ensuring every snack is delightful and guilt-free.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flavors Section -->
+    <section id="flavors" class="flavors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Flavors</h2>
+                <div class="underline"></div>
+                <p class="subtitle">Coming Soon - Exciting New Varieties!</p>
+            </div>
+            <div class="flavor-grid">
+                <!-- Classic Flavors -->
+                <div class="flavor-card">
+                    <div class="flavor-img">
+                        <img src="C:\Users\Saite\Desktop\makahana\makhanaflavoir1.jpg" alt="Classic Makhana Pops">
+                    </div>
+                    <h3>Classic Collection</h3>
+                    <ul>
+                        <li>Himalayan Salt</li>
+                        <li>Black Pepper</li>
+                        <li>Turmeric Twist</li>
+                        <li>Roasted Garlic</li>
+                    </ul>
+                </div>
+                
+                <!-- Exotic Flavors -->
+                <div class="flavor-card">
+                    <div class="flavor-img">
+                        <img src="C:\Users\Saite\Desktop\makahana\makhanaflavour2.jpg" alt="Exotic Makhana Pops">
+                    </div>
+                    <h3>Exotic Flavors</h3>
+                    <ul>
+                        <li>Thai Chili Lime</li>
+                        <li>Wasabi Seaweed</li>
+                        <li>Peri Peri Spice</li>
+                        <li>Barbecue Smoke</li>
+                    </ul>
+                </div>
+                
+                <!-- Sweet Varieties -->
+                <div class="flavor-card">
+                    <div class="flavor-img">
+                        <img src="C:\Users\Saite\Desktop\makahana\makhanaflavour3.jpg" alt="Sweet Makhana Pops">
+                    </div>
+                    <h3>Sweet Treats</h3>
+                    <ul>
+                        <li>Caramel Crunch</li>
+                        <li>Chocolate Drizzle</li>
+                        <li>Honey Glazed</li>
+                        <li>Vanilla Berry</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- New Packaging Section -->
+<section id="packaging" class="packaging">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Sustainable Packaging</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="packaging-grid">
+            <div class="packaging-card">
+                <img src="C:\Users\Saite\Desktop\makahana\makhana_packaging1.jpg" alt="Eco-friendly packaging">
+                <h3>Eco-Friendly</h3>
+                <p>100% biodegradable materials</p>
+            </div>
+            <div class="packaging-card">
+                <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae" alt="Resealable packaging">
+                <h3>Resealable</h3>
+                <p>Keeps your snacks fresh</p>
+            </div>
+            <div class="packaging-card">
+                <img src="C:\Users\Saite\Desktop\makahana\makhana_packaging2.jpg" alt="Compact packaging">
+                <h3>Compact</h3>
+                <p>Perfect for on-the-go</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Makhana Pops?</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Heart Healthy</h3>
+                    <p>Low in cholesterol and saturated fats</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Protein Rich</h3>
+                    <p>9g protein per 100g serving</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-weight"></i>
+                    <h3>Weight Management</h3>
+                    <p>Low calorie, high satiety snack</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Brain Food</h3>
+                    <p>Rich in antioxidants and minerals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Join the Makhana Revolution</h3>
+                    <p>Be the first to know when we launch!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fas fa-envelope"></i> hello@makhanapops.com</a>
+                        <a href="#"><i class="fab fa-instagram"></i> @makhanapops</a>
+                        <a href="#"><i class="fab fa-facebook"></i> /makhanapops</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name">
+                        <input type="email" placeholder="Your Email">
+                        <textarea placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="C:\Users\Saite\Desktop\makahana\makhana_logo.png" alt="Makhana Pops Logo">
+                    <h3>Makhana Pops</h3>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#flavors">Flavors</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subscribe">
+                    <h4>Subscribe to our newsletter</h4>
+                    <form>
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Makhana Pops. All Rights Reserved.</p>
+                <p>Snack Smart. Live Well.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+       const mobileMenu = document.querySelector('.mobile-menu');
+const navUl = document.querySelector('nav ul');
+
+mobileMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    navUl.classList.toggle('active');
+});
+
+// Close menu when clicking a link
+const navLinks = document.querySelectorAll('nav ul li a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        navUl.classList.remove('active');
+    });
+});
+
+// Smooth scrolling for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
